@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>webOS 4.0 DLNA 浏览播放器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>DLNA 媒体播放器（webOS 4.0）</h1>
+        <p>自动发现局域网 DLNA 服务器，浏览目录并播放媒体（支持外挂字幕）</p>
+      </header>
+
+      <section class="toolbar panel">
+        <button id="discoverBtn">扫描 DLNA 服务器</button>
+        <button id="manualRefreshBtn" class="ghost">刷新当前目录</button>
+        <span id="status" role="status">等待扫描...</span>
+      </section>
+
+      <section class="layout">
+        <aside class="panel servers">
+          <h2>服务器</h2>
+          <ul id="serverList" class="list"></ul>
+        </aside>
+
+        <section class="panel browser">
+          <div class="browser-head">
+            <h2>媒体目录</h2>
+            <button id="backBtn" class="ghost">返回上一级</button>
+          </div>
+          <p id="currentPath" class="path">尚未选择服务器</p>
+          <ul id="contentList" class="list"></ul>
+        </section>
+      </section>
+
+      <section class="panel subtitle-panel">
+        <h2>外挂字幕（可选）</h2>
+        <div class="subtitle-controls">
+          <input id="subtitleUrl" type="text" placeholder="输入字幕 URL（.vtt 或 .srt）" />
+          <button id="applySubtitleBtn">应用字幕</button>
+          <button id="clearSubtitleBtn" class="ghost">清除字幕</button>
+        </div>
+      </section>
+
+      <section class="panel player">
+        <video id="player" controls preload="metadata" autoplay></video>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
